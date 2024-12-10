@@ -1,3 +1,4 @@
+'''
 # 1. Ввести строку
 
 str_input = 'Hello world in my world'
@@ -24,4 +25,31 @@ for i in str_input_copy:  # Проходим по каждому символу 
     else:
         dictionary[i] = 1  # Если символа нет, добавляем его в словарь
 
-print(dictionary)
+print(dictionary)'''
+
+##########################################################
+# Задача: Подсчет гласных и согласных букв
+# Напишите программу, которая подсчитывает количество гласных и согласных букв в строке.
+# Пробелы, цифры и знаки препинания нужно игнорировать. Используйте словарь для хранения подсчета.
+
+string_input = "Hello, World! 123".lower()
+vowels = 0
+non_vowels = 0
+numbers = 0
+other_simbols = 0
+for i in string_input:
+    if i.isalpha():
+        if i in 'aeiou':
+            vowels+=1
+        else:
+            non_vowels+=1
+    elif i.isnumeric():
+        numbers+=1
+    else:
+        other_simbols+=1
+
+print(f'Гласных в строке {vowels} и не гласных {non_vowels}, а так же других символов {other_simbols} из них {numbers} цифр')
+
+# Гласные: a, e, i, o, u (и их заглавные эквиваленты).
+# Используйте метод .isalpha() для проверки, является ли символ буквой.
+# Приведите строку к одному регистру перед подсчетом.
