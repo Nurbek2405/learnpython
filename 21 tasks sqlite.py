@@ -40,13 +40,19 @@ connection = sqlite3.connect('library.db')
 cursor = connection.cursor()
 
 # Вставка данных
-cursor.execute("INSERT INTO books (title, author, year) VALUES ('1984', 'George Orwell', 1949)")
-cursor.execute("INSERT INTO books (title, author, year) VALUES ('To Kill a Mockingbird', 'Harper Lee', 1960)")
-cursor.execute("INSERT INTO books (title, author, year) VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', 1925)")
+# cursor.execute("INSERT INTO books (title, author, year) VALUES ('1984', 'George Orwell', 1949)")
+# cursor.execute("INSERT INTO books (title, author, year) VALUES ('To Kill a Mockingbird', 'Harper Lee', 1960)")
+# cursor.execute("INSERT INTO books (title, author, year) VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', 1925)")
 
 # Сохранение изменений
 connection.commit()
 
+cursor.execute("SELECT * FROM books")
+all_books = cursor.fetchall()
+
+# Вывод данных в консоль
+for book in all_books:
+    print(book)
 
 # Закрытие соединения
 connection.close()
